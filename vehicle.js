@@ -64,7 +64,10 @@ class Vehicle {
         this.applyForce(steeringForce);
 
         if (target.dist(this.position) < 10) {
-            objects.splice(objects.indexOf(target), 1);
+            var index = objects.indexOf(target);
+            objects.splice(index, 1);
+            colors.splice(index, 1);
+
             this.numOfObjectsPassed++;
         }
     }

@@ -2,6 +2,7 @@
 var vehicle, cnv;
 
 var food = [];
+var colors = [];
 
 function setup() {
     cnv = createCanvas(500, 500);
@@ -19,9 +20,14 @@ function setup() {
         var x = random(width);
         var y = random(height);
         food.push(createVector(x, y));
+        var r = random(255);
+        var g = random(255);
+        var b = random(255);
+        colors.push(color(r, g, b));
     }
     cnv.mouseClicked(function() {
         food.push(createVector(mouseX, mouseY));
+        colors.push(color(random(255), random(255), random(255)))
     });
 }
 
@@ -41,7 +47,7 @@ function draw() {
     }
 
     for (var i = 0; i < food.length; i++) {
-        fill("green");
+        fill(colors[i]);
         ellipse(food[i].x, food[i].y, 8, 8);
     }
 }
