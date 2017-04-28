@@ -1,18 +1,19 @@
 /* eslint-disable */
-var vehicle, cnv;
+var vehicle, cnv, stayWithinWalls;
 
 var food = [];
 var colors = [];
 
 function setup() {
     cnv = createCanvas(500, 500);
+    cnv.parent("#cnv");
 
-    var x = (windowWidth - width) / 2;
-    var y = (windowHeight - height) / 2;
-    cnv.position(x, y);
+    $("canvas").css("position", "static");
 
     vehicle = new Vehicle();
     centre = createVector(width / 2, height / 2);
+
+    stayWithinWalls = $("#within-walls");
 
     noStroke();
 

@@ -44,7 +44,7 @@ class Vehicle {
         if (desiredVelocity !== null) {
             steeringForce = p5.Vector.sub(desiredVelocity, this.velocity);
             steeringForce.normalize();
-            steeringForce.mult(this.maxForce);
+            steeringForce.mult(this.maxForce * 2);
             this.applyForce(steeringForce);
         }
     }
@@ -88,6 +88,9 @@ class Vehicle {
         this.velocity.add(this.acceleration);
         this.velocity.limit(this.maxSpeed);
 
+        // this.maxForce = $("#steer").val();
+        // this.maxSpeed = $("#speed").val();
+
         this.acceleration.mult(0);
     }
     display() {
@@ -101,7 +104,8 @@ class Vehicle {
     render() {
         this.update();
         this.display();
-        this.boundary();
+        if (stayWithinWalls.is(":checked"))
+            this.boundary();
     }
     reset() {
         this.position = createVector(width / 2, height / 2 + 20);
