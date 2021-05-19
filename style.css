@@ -1,0 +1,115 @@
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-family: 'Nunito', sans-serif;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.box {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	width: 100%;
+	height: 100%;
+	padding: 1em 2.5em;
+
+	background-color: rgba(34, 34, 34);
+	color: #fff;
+}
+
+#defaultCanvas0 {
+	width: 100%;
+	height: 100%;
+}
+
+.title-container {
+	grid-column: 1 / 2;
+	margin-top: 8em;
+
+	height: -webkit-fit-content;
+	height: -moz-fit-content;
+	height: fit-content;
+}
+
+h1 {
+	font-size: 10rem;
+	font-weight: 400;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+
+	background: linear-gradient(to right, #ffbb00, #8f00ff);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+h1 + p {
+	max-width: 55ch;
+	color: #8f8f8f;
+	line-height: 1.75em;
+	font-size: 1.75rem;
+	margin-top: 1.75em;
+}
+
+h1 + p > strong:nth-child(1) {
+	color: #ffbb00;
+}
+
+h1 + p > strong:nth-child(2) {
+	color: #8f00ff;
+}
+
+#logo {
+	width: 70px;
+	height: auto;
+}
+
+.canvas-container {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	height: 100%;
+
+	/* height: -webkit-fit-content;
+	height: -moz-fit-content;
+	height: fit-content; */
+}
+
+#checkpoint-count {
+	color: #8f8f8f;
+	opacity: 0.5;
+	transition: all 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 1072px) {
+	html,
+	body {
+		font-size: 1em;
+	}
+
+	.box {
+		grid-template-columns: 1fr;
+	}
+	.title-container {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		margin-top: 0.75em;
+	}
+	.canvas-container {
+		margin-top: 0;
+		justify-content: flex-end;
+	}
+
+	#checkpoint-count {
+		font-size: 1.75em;
+	}
+}
